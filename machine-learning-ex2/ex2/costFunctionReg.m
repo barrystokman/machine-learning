@@ -19,9 +19,9 @@ grad = zeros(size(theta));
 
 hypothesis = sigmoid(X * theta);
 
-J_noreg = (sum(-y .* log(hypothesis) - (1-y) .* log(1-hypothesis))) / m
-regularization_term = (lambda * sum(theta(2:end,:) .^2)) / (2 * m) 
-J = J_noreg + regularization_term
+J_noreg = (sum(-y .* log(hypothesis) - (1-y) .* log(1-hypothesis))) / m;
+regularization_term = (lambda * sum(theta(2:end,:) .^2)) / (2 * m); 
+J = J_noreg + regularization_term;
 
 grad = sum((hypothesis - y) .* X) / m ;
 
