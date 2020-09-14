@@ -17,7 +17,13 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
+hypothesis = sigmoid(X * theta);
 
+J_noreg = (sum(-y .* log(hypothesis) - (1-y) .* log(1-hypothesis))) / m;
+regularization_term = (lambda / 2 * m) * sum(theta(2:end,:)) .^2
+J = J_noreg + regularization_term
+
+grad = sum((hypothesis - y) .* X) / m ;
 
 
 
